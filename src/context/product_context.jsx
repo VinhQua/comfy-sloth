@@ -38,8 +38,10 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: GET_PRODUCTS_BEGIN });
     try {
       const { data } = await axios.get(url);
-
-      dispatch({ type: GET_PRODUCTS_SUCCESS, payload: { products: data } });
+      dispatch({
+        type: GET_PRODUCTS_SUCCESS,
+        payload: { products: data },
+      });
     } catch (error) {
       console.log(error);
       dispatch({ type: GET_PRODUCTS_ERROR });
