@@ -5,7 +5,42 @@ import { useFilterContext } from "../context/filter_context";
 import { FaCheck } from "react-icons/fa";
 
 const Filters = () => {
-  return <h4>filters</h4>;
+  const {
+    filters: {
+      text,
+      categeory,
+      price,
+      color,
+      company,
+      min_price,
+      max_price,
+      shipping,
+    },
+    updateFilters,
+    clearFilters,
+    all_products,
+  } = useFilterContext();
+
+  return (
+    <Wrapper>
+      <div className="content">
+        <form onSubmit={(e) => e.preventDefault()}>
+          {/* search input */}
+          <div className="form-control">
+            <input
+              type="text"
+              name="text"
+              placeholder="search"
+              className="search-input"
+              value={text}
+              onChange={updateFilters}
+            />
+          </div>
+          {/* end of search input */}
+        </form>
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`
