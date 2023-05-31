@@ -14,6 +14,8 @@ import SideBar from "./SideBar";
 import Stars from "./Stars";
 import Sort from "./Sort";
 import ProductList from "./ProductList";
+import CartContent from "./CartContent";
+
 export {
   Contact,
   FeaturedProducts,
@@ -31,4 +33,5 @@ export {
   Filters,
   ProductList,
   Sort,
+  CartContent,
 };
