@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import ProductsPage from "./ProductsPage";
 import SingleProduct from "./SingleProduct";
 import ShareProductLayout from "./ShareProductLayout";
+import AuthWrapper from "./AuthWrapper";
 
 export {
   AboutPage,
@@ -20,4 +21,5 @@ export {
   SingleProduct,
   ShareLayoutPage,
   ShareProductLayout,
+  AuthWrapper,
 };

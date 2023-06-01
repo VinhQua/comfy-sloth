@@ -1,9 +1,11 @@
 import {
   AboutPage,
+  AuthWrapper,
   CartPage,
   CheckoutPage,
   ErrorPage,
   HomePage,
+  PrivateRoute,
   ProductsPage,
   ShareLayoutPage,
   ShareProductLayout,
@@ -14,21 +16,30 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ShareLayoutPage />}>
-          <Route index element={<HomePage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="cart" element={<CartPage />} />
-          <Route path="products" element={<ShareProductLayout />}>
-            <Route index element={<ProductsPage />} />
-            <Route path=":id" element={<SingleProduct />} />
+    <AuthWrapper>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ShareLayoutPage />}>
+            <Route index element={<HomePage />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="cart" element={<CartPage />} />
+            <Route path="products" element={<ShareProductLayout />}>
+              <Route index element={<ProductsPage />} />
+              <Route path=":id" element={<SingleProduct />} />
+            </Route>
+            <Route
+              path="checkout"
+              element={
+                <PrivateRoute>
+                  <CheckoutPage />
+                </PrivateRoute>
+              }
+            />
+            <Route path="*" element={<ErrorPage />} />
           </Route>
-          <Route path="checkout" element={<CheckoutPage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </AuthWrapper>
   );
 }
 

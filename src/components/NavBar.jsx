@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { links } from "../utils/constant";
 import CartButton from "./CartButton";
 import { useProductsContext } from "../context/product_context";
+import { useUserContext } from "../context/user_context";
 const NavBar = () => {
   const { openSidebar } = useProductsContext();
+  const { myUser } = useUserContext();
   return (
     <Navcontainer>
       <div className="nav-center">
@@ -27,7 +29,13 @@ const NavBar = () => {
               </li>
             );
           })}
+          {myUser && (
+            <li>
+              <Link to="/checkout">checkout</Link>
+            </li>
+          )}
         </ul>
+
         <CartButton />
       </div>
     </Navcontainer>
