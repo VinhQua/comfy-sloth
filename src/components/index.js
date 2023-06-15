@@ -15,8 +15,10 @@ import Stars from "./Stars";
 import Sort from "./Sort";
 import ProductList from "./ProductList";
 import CartContent from "./CartContent";
+import StripeCheckout from "./StripeCheckout";
 
 export {
+  StripeCheckout,
   Contact,
   FeaturedProducts,
   Hero,
