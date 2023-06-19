@@ -10,8 +10,8 @@ import { UserProvider } from "./context/user_context.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Auth0Provider
-    domain="dev-d8mml4rvys32z8lg.us.auth0.com"
-    clientId="5Fp01aZB49pXYeAAH5482WMXOrVphJfe"
+    domain={import.meta.env.VITE_APP_AUTH_DOMAIN}
+    clientId={import.meta.env.VITE_APP_AUTH_CLIENT_ID}
     authorizationParams={{
       redirect_uri: window.location.origin,
     }}
