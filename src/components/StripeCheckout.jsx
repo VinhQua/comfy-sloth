@@ -76,7 +76,7 @@ const CheckoutForm = () => {
       },
     });
     if (payload.error) {
-      setError(`Payment failed ${payload.error.message}`);
+      setError(`${payload.error.message}`);
       setProcessing(false);
     } else {
       setError(null);
@@ -99,7 +99,7 @@ const CheckoutForm = () => {
       ) : (
         <article>
           <h4>Hello, {myUser && myUser.name}</h4>
-          <p>Your total is {formatPrice(total_amount)}</p>
+          <p>Your total is {formatPrice(shipping_fee + total_amount)}</p>
           <p>Test Card Number: 4242 4242 4242 4242</p>
         </article>
       )}
@@ -123,7 +123,11 @@ const CheckoutForm = () => {
         {/* Show a success message upon completion */}
         <p className={succeeded ? "result-message" : "result-message hidden"}>
           Payment succeeded, see the result in your
-          <a href={`https://dashboard.stripe.com/test/payments`}>
+          <a
+            href={`https://dashboard.stripe.com/test/payments`}
+            target="_blank"
+            rel="noreferrer"
+          >
             {" "}
             Stripe dashboard.
           </a>{" "}
